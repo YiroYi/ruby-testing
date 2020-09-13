@@ -138,12 +138,69 @@ RSpec.describe 'check start_with_and_end matcher' do
   end
 end
 
+class ProfessionalWrestler
+  attr_reader :name, :finishing_move
+  def initialize(name, finishing_move)
+    @name = name
+    @finishing_move = finishing_move
+  end
+end
 
-# RSpec.describe '' do
-#   it '' do
-#     expect().to eq()
-#   end
-# end
+RSpec.describe 'have_attributes' do
+  describe ProfessionalWrestler.new('Stone', 'Hadouken') do
+    it 'checks for object attribute' do
+      expect(subject).to have_attributes(name: 'Stone')
+      expect(subject).to have_attributes(finishing_move: 'Hadouken')
+    end
+  end
+end
+
+RSpec.describe 'include method' do
+  describe 'hot chocolate' do
+    it 'checks for inclusion' do
+      expect(subject).to include('hot')
+      expect(subject).to include('t c')
+      expect(subject).to include('chocolate')
+    end
+  end
+end
+
+RSpec.describe 'raise specific error' do
+  def some_method
+    x
+  end
+
+  it 'can check for error' do
+    expect { some_method }.to raise_error(NameError)
+    expect { 10 / 0 }.to raise_error(ZeroDivisionError)
+  end
+end
+
+class HotChocolate
+  def drink
+    'Delicious'
+  end
+
+  def discard
+    'PLOP !'
+  end
+
+  def purchase(number)
+    "I bought #{number} coffes"
+  end
+end
+
+RSpec.describe HotChocolate do
+  it 'confirms object respond to method' do
+    expect(subject).to respond_to(:drink)
+    expect(subject).to respond_to(:discard)
+    expect(subject).to respond_to(:purchase)
+  end
+
+  it 'confirms object respond to method with parameters' do
+    expect(subject).to respond_to(:purchase).with(1).arguments
+  end
+end
 
 
 # equal same in design but not identical identical talk about the address , thow house are euqal in design but not identical because they
