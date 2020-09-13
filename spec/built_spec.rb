@@ -146,7 +146,6 @@ class ProfessionalWrestler
   end
 end
 
-
 RSpec.describe 'have_attributes' do
   describe ProfessionalWrestler.new('Stone', 'Hadouken') do
     it 'checks for object attribute' do
@@ -156,7 +155,15 @@ RSpec.describe 'have_attributes' do
   end
 end
 
-
+RSpec.describe 'include method' do
+  describe 'hot chocolate' do
+    it 'checks for inclusion' do
+      expect(subject).to include('hot')
+      expect(subject).to include('t c')
+      expect(subject).to include('chocolate')
+    end
+  end
+end
 
 # RSpec.describe '' do
 #   it '' do
