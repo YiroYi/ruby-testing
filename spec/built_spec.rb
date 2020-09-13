@@ -29,8 +29,27 @@ RSpec.describe 'eql matcher' do
 end
 
 
+RSpec.describe 'Equal and B matcher' do
+  let(:a) { 3.0 }
+  let(:b) { 3 }
+  let(:c) { [1, 2, 3] }
+  let(:d) { [1, 2, 3] }
+  let(:e) { c }
+
+  it 'care about identity' do
+    expect(c).to eq(d)
+    expect(c).to eql(d)
+
+    expect(c).to eql(d) # testea identidad
+  end
+end
+
 # RSpec.describe '' do
 #   it '' do
 #     expect().to eq()
 #   end
 # end
+
+
+# equal same in design but not identical identical talk about the address , thow house are euqal in design but not identical because they
+# different address
