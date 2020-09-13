@@ -95,6 +95,27 @@ end
 
 # all ryby methods that has ? .zero? empty? etc replace with be_zero
 
+RSpec.describe 'change matcher' do
+  subject { [1, 2, 3] }
+  it 'checks that a method changes object state' do
+    expect { subject.push(4) }.to change { subject.length }.from(3).to(4)
+  end
+
+  it 'checks that a method changes object state' do
+    expect { subject.push(4) }.to change { subject.length }.by(1) # la diferencia en el cambio
+  end
+
+  it 'accept negative' do
+    expect { subject.pop }.to change { subject.length }.from(3).to(2) # la diferencia en el cambio
+  end
+
+  it 'accept negative' do
+    expect { subject.pop }.to change { subject.length }.by(-1) # la diferencia en el cambio
+  end
+end
+#Make a method change the object , this can be use when something is inserted in the DB
+
+
 # RSpec.describe '' do
 #   it '' do
 #     expect().to eq()
