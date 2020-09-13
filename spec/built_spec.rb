@@ -1,13 +1,12 @@
 RSpec.describe 'not to mehot' do
-    it 'checks two values dont match' do
-      expect(5).not_to eq(6)
-    end
+  it 'checks two values dont match' do
+    expect(5).not_to eq(6)
+  end
 end
 
 # not_to it is equal to !=
 
 RSpec.describe 'equality matchers' do
-
   let(:a) { 3.0 }
   let(:b) { 3 }
 
@@ -28,7 +27,6 @@ RSpec.describe 'eql matcher' do
   end
 end
 
-
 RSpec.describe 'Equal and B matcher' do
   let(:a) { 3.0 }
   let(:b) { 3 }
@@ -41,6 +39,19 @@ RSpec.describe 'Equal and B matcher' do
     expect(c).to eql(d)
 
     expect(c).to eql(d) # testea identidad
+  end
+end
+
+RSpec.describe 'comparison marchers' do
+  it 'allows for comparison with built-ini Ruby operators' do
+    expect(10).to be > 5
+    expect(8).to be < 15
+    expect(1).to be >= 0
+  end
+
+  describe 100 do
+    it { is_expected.to be > 50 }
+    it { is_expected.to be < 500 }
   end
 end
 
