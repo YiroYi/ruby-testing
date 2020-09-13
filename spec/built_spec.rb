@@ -55,6 +55,21 @@ RSpec.describe 'comparison marchers' do
   end
 end
 
+RSpec.describe 'predicates methods' do
+  it 'can be tested with ruby methods' do
+    result = 16 / 2
+    expect(result.even?).to eq(true)
+  end
+
+  it 'can be tested with predicate matches' do
+    expect(16 / 2).to be_even
+    expect(0).to be_zero
+  end
+end
+
+
+# all ryby methods that has ? .zero? empty? etc replace with be_zero
+
 # RSpec.describe '' do
 #   it '' do
 #     expect().to eq()
