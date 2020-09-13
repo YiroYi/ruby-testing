@@ -113,7 +113,18 @@ RSpec.describe 'change matcher' do
     expect { subject.pop }.to change { subject.length }.by(-1) # la diferencia en el cambio
   end
 end
-#Make a method change the object , this can be use when something is inserted in the DB
+# Make a method change the object , this can be use when something is inserted in the DB
+
+RSpec.describe 'contain_exactly matcher' do
+  subject { [1, 2, 3] }
+
+  it 'long form syntax' do
+    expect(subject).to contain_exactly(1, 2, 3)
+    expect(subject).to contain_exactly(2, 1, 3)
+    expect(subject).to contain_exactly(3, 1, 2)
+  end
+end
+# Review that items are exactly included
 
 
 # RSpec.describe '' do
