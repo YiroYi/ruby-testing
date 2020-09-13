@@ -126,6 +126,18 @@ RSpec.describe 'contain_exactly matcher' do
 end
 # Review that items are exactly included
 
+RSpec.describe 'check start_with_and_end matcher' do
+  describe 'caterpillar' do
+    it 'caterpillar' do
+      expect(subject).to start_with('c')
+    end
+
+    it 'caterpillar' do
+      expect(subject).to end_with('pillar')
+    end
+  end
+end
+
 
 # RSpec.describe '' do
 #   it '' do
