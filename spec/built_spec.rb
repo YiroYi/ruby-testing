@@ -77,7 +77,21 @@ RSpec.describe 'all matchers' do
   end
 end
 
+RSpec.describe 'be matchers' do
+  it 'can test for truthiness' do
+    expect(true).to be_truthy
+    expect(2).to be_truthy
+    expect(-1).to be_truthy
+    expect('Yiro').to be_truthy
+    expect([]).to be_truthy
+    expect('').to be_truthy
+  end
 
+  it 'test falsy' do
+    expect(false).to be_falsy
+    expect(nil).to be_falsy
+  end
+end
 
 # all ryby methods that has ? .zero? empty? etc replace with be_zero
 
