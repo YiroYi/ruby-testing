@@ -176,12 +176,31 @@ RSpec.describe 'raise specific error' do
   end
 end
 
+class HotChocolate
+  def drink
+    'Delicious'
+  end
 
-# RSpec.describe '' do
-#   it '' do
-#     expect().to eq()
-#   end
-# end
+  def discard
+    'PLOP !'
+  end
+
+  def purchase(number)
+    "I bought #{number} coffes"
+  end
+end
+
+RSpec.describe HotChocolate do
+  it 'confirms object respond to method' do
+    expect(subject).to respond_to(:drink)
+    expect(subject).to respond_to(:discard)
+    expect(subject).to respond_to(:purchase)
+  end
+
+  it 'confirms object respond to method with parameters' do
+    expect(subject).to respond_to(:purchase).with(1).arguments
+  end
+end
 
 
 # equal same in design but not identical identical talk about the address , thow house are euqal in design but not identical because they
