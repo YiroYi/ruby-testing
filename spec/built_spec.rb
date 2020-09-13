@@ -138,6 +138,25 @@ RSpec.describe 'check start_with_and_end matcher' do
   end
 end
 
+class ProfessionalWrestler
+  attr_reader :name, :finishing_move
+  def initialize(name, finishing_move)
+    @name = name
+    @finishing_move = finishing_move
+  end
+end
+
+
+RSpec.describe 'have_attributes' do
+  describe ProfessionalWrestler.new('Stone', 'Hadouken') do
+    it 'checks for object attribute' do
+      expect(subject).to have_attributes(name: 'Stone')
+      expect(subject).to have_attributes(finishing_move: 'Hadouken')
+    end
+  end
+end
+
+
 
 # RSpec.describe '' do
 #   it '' do
