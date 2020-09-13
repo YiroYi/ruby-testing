@@ -165,6 +165,18 @@ RSpec.describe 'include method' do
   end
 end
 
+RSpec.describe 'raise specific error' do
+  def some_method
+    x
+  end
+
+  it 'can check for error' do
+    expect { some_method }.to raise_error(NameError)
+    expect { 10 / 0 }.to raise_error(ZeroDivisionError)
+  end
+end
+
+
 # RSpec.describe '' do
 #   it '' do
 #     expect().to eq()
