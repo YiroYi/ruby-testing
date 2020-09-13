@@ -67,8 +67,77 @@ RSpec.describe 'predicates methods' do
   end
 end
 
+# it is as make an each, this review one element by one
+# all should pass true to the test passess
+RSpec.describe 'all matchers' do
+  it 'allows for aggregate checks' do
+    expect([5, 7, 9]).to all(be_odd)
+    expect([0, 0]).to all(be_zero)
+    expect([5, 7, 9]).to all(be < 10)
+  end
+end
+
+RSpec.describe 'be matchers' do
+  it 'can test for truthiness' do
+    expect(true).to be_truthy
+    expect(2).to be_truthy
+    expect(-1).to be_truthy
+    expect('Yiro').to be_truthy
+    expect([]).to be_truthy
+    expect('').to be_truthy
+  end
+
+  it 'test falsy' do
+    expect(false).to be_falsy
+    expect(nil).to be_falsy
+  end
+end
 
 # all ryby methods that has ? .zero? empty? etc replace with be_zero
+
+RSpec.describe 'change matcher' do
+  subject { [1, 2, 3] }
+  it 'checks that a method changes object state' do
+    expect { subject.push(4) }.to change { subject.length }.from(3).to(4)
+  end
+
+  it 'checks that a method changes object state' do
+    expect { subject.push(4) }.to change { subject.length }.by(1) # la diferencia en el cambio
+  end
+
+  it 'accept negative' do
+    expect { subject.pop }.to change { subject.length }.from(3).to(2) # la diferencia en el cambio
+  end
+
+  it 'accept negative' do
+    expect { subject.pop }.to change { subject.length }.by(-1) # la diferencia en el cambio
+  end
+end
+# Make a method change the object , this can be use when something is inserted in the DB
+
+RSpec.describe 'contain_exactly matcher' do
+  subject { [1, 2, 3] }
+
+  it 'long form syntax' do
+    expect(subject).to contain_exactly(1, 2, 3)
+    expect(subject).to contain_exactly(2, 1, 3)
+    expect(subject).to contain_exactly(3, 1, 2)
+  end
+end
+# Review that items are exactly included
+
+RSpec.describe 'check start_with_and_end matcher' do
+  describe 'caterpillar' do
+    it 'caterpillar' do
+      expect(subject).to start_with('c')
+    end
+
+    it 'caterpillar' do
+      expect(subject).to end_with('pillar')
+    end
+  end
+end
+
 
 # RSpec.describe '' do
 #   it '' do
