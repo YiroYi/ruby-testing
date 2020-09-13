@@ -67,6 +67,17 @@ RSpec.describe 'predicates methods' do
   end
 end
 
+# it is as make an each, this review one element by one
+# all should pass true to the test passess
+RSpec.describe 'all matchers' do
+  it 'allows for aggregate checks' do
+    expect([5, 7, 9]).to all(be_odd)
+    expect([0, 0]).to all(be_zero)
+    expect([5, 7, 9]).to all(be < 10)
+  end
+end
+
+
 
 # all ryby methods that has ? .zero? empty? etc replace with be_zero
 
